@@ -1,0 +1,26 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myApp3.myApp3.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Detail Page" showNavButton="true" navButtonPress="handleNavButtonPress">
+		
+		<ObjectHeader title="{ProductName}" number="{= ((4 * 100) / 100).toFixed(2) }" numberUnit="{i18n>currency}">
+			<statuses>
+				<ObjectStatus text="{= ${name}? 'Discontinued' : 'Available' }" state="{= ${name}? 'Error' : 'Success' }"/>
+			</statuses>
+			
+			<attributes>
+				<ObjectAttribute text="Billing Key #{billingkey}"/>
+				<ObjectAttribute text="Address #{address}"/>
+				<ObjectAttribute text="Name #{name}"/>
+			</attributes>
+		</ObjectHeader>
+		
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>OrderButtonText}" type="Accept" icon="sap-icon://accept" press="handleOrder"/>
+				</contentRight>
+			</Bar>
+		</footer>
+		
+	</Page>
+</mvc:View>

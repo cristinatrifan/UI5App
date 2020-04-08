@@ -1,0 +1,32 @@
+<mvc:View controllerName="myApp3.myApp3.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" titleLevel="H1">
+					
+					<subHeader>
+						<Bar>
+							<contentLeft>
+								<SearchField search="handleSearch"/>
+							</contentLeft>
+						</Bar>
+					</subHeader>
+					
+					<content>
+						<List id="List" items="{/ztcr_fi__c_CDSorder}">
+							<ObjectListItem type="Navigation" press="handleListItemPress" title="{address}" number="{= (3)}" numberUnit="{i18n>currency}">
+								<attributes>
+									<ObjectAttribute text="{billingkey}"/>
+								</attributes>
+								<firstStatus>
+									<ObjectStatus text="{= ${name}? 'Discontinued' : 'Available' }" state="{= ${name}? 'Error' : 'Success' }"/>
+								</firstStatus>
+							</ObjectListItem>
+						</List>
+					</content>
+					
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

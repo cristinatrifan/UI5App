@@ -1,0 +1,58 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL001')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZTCR_FI_BOPF_SRV_01" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ztcr_fi_c_cdsinvType" sap:label="Faktura Int - CDS Inv Consumption View" sap:content-version="1">
+				<Key><PropertyRef Name="id"/></Key><Property Name="id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="Global Unique ID for table"/><Property Name="invoiceid" Type="Edm.String" MaxLength="128" sap:label="Invoice ID" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="invdate" Type="Edm.String" MaxLength="128" sap:label="Invoice Date" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="fakturanumber" Type="Edm.Int32" sap:label="Invoice no."
+					sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/><Property Name="startdate" Type="Edm.String" MaxLength="128" sap:label="Start Date" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="enddate" Type="Edm.String" MaxLength="128" sap:label="End Date" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="total" Type="Edm.String" MaxLength="128" sap:label="Total" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="vat" Type="Edm.String" MaxLength="128" sap:label="Value-Added Tax" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="totalvat" Type="Edm.String" MaxLength="128" sap:label="Total Value-Added Tax"
+					sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="issuedate" Type="Edm.String" MaxLength="128" sap:label="Issue Date" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="responsible" Type="Edm.String" MaxLength="128" sap:label="Person Responsible"
+					sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="tel" Type="Edm.String" MaxLength="128" sap:label="Telephone no." sap:quickinfo="128 Lowercase and Uppercase Letters"
+					sap:semantics="tel"/><Property Name="email" Type="Edm.String" MaxLength="128" sap:label="E-mail" sap:quickinfo="128 Lowercase and Uppercase Letters"
+					sap:semantics="email"/><Property Name="extnr" Type="Edm.String" MaxLength="128" sap:label="External no." sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="invtotal" Type="Edm.String" MaxLength="128" sap:label="Total Invoiced" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="invoiced" Type="Edm.String" MaxLength="128" sap:label="Invoiced" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="orderid" Type="Edm.Guid" sap:label="Order ID" sap:quickinfo="Global Unique ID for table"/><NavigationProperty Name="to_invpostr" Relationship="ZTCR_FI_BOPF_SRV_01.assoc_1C60B3C86DE9103EB5163CEA587970D8"
+					FromRole="FromRole_assoc_1C60B3C86DE9103EB5163CEA587970D8" ToRole="ToRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"/><NavigationProperty Name="to_orders" Relationship="ZTCR_FI_BOPF_SRV_01.assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"
+					FromRole="ToRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39" ToRole="FromRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"/></EntityType>
+			<EntityType Name="ztcr_fi_c_cdsinvposType" sap:label="Faktura Int - CDS Inv Pos Consumpt View" sap:content-version="1">
+				<Key><PropertyRef Name="id"/></Key><Property Name="id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="Global Unique ID for table"/><Property Name="invoiceid" Type="Edm.String" MaxLength="128" sap:label="Invoice ID" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="nr" Type="Edm.Int32" sap:label="Invoice Position No"
+					sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/><Property Name="descr" Type="Edm.String" MaxLength="128" sap:label="Invoice Position Description"
+					sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="unitmeasure" Type="Edm.String" MaxLength="128" sap:label="Unit of Measure"
+					sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="quantity" Type="Edm.Int32" sap:label="Quantity" sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/><Property Name="unitprice" Type="Edm.Int32" sap:label="Unit Price"
+					sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/><Property Name="invid" Type="Edm.Guid" sap:label="UUID" sap:quickinfo="Global Unique ID for table"/><NavigationProperty Name="to_invoices" Relationship="ZTCR_FI_BOPF_SRV_01.assoc_1C60B3C86DE9103EB5163CEA587970D8"
+					FromRole="ToRole_assoc_1C60B3C86DE9103EB5163CEA587970D8" ToRole="FromRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"/></EntityType>
+			<EntityType Name="ztcr_fi__c_CDSorderType" sap:label="Faktura Int - CDS Order Consumption View" sap:content-version="1">
+				<Key><PropertyRef Name="id"/></Key><Property Name="id" Type="Edm.Guid" Nullable="false" sap:label="Order ID" sap:quickinfo="Global Unique ID for table"/><Property Name="billingkey" Type="Edm.String" MaxLength="128" sap:label="Billing Key" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="extbillingkey" Type="Edm.String" MaxLength="128" sap:label="External Billing Key"
+					sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="name" Type="Edm.String" MaxLength="128" sap:label="Order Name" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="nrirc" Type="Edm.Int32" sap:label="IRC Number" sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/><Property Name="cui" Type="Edm.String" MaxLength="128" sap:label="Fiscal Identification Code"
+					sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="payterms" Type="Edm.String" MaxLength="128" sap:label="Payment Terms" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="taxterms" Type="Edm.String" MaxLength="128" sap:label="Tax Terms" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="address" Type="Edm.String" MaxLength="128" sap:label="Address" sap:quickinfo="128 Lowercase and Uppercase Letters"/><Property Name="templateid" Type="Edm.Guid" sap:label="Template ID" sap:quickinfo="Global Unique ID for table"/><Property Name="buyerid" Type="Edm.Guid" sap:label="Buyer ID" sap:quickinfo="Global Unique ID for table"/><Property Name="branchid" Type="Edm.Guid" sap:label="Branch ID" sap:quickinfo="Global Unique ID for table"/><NavigationProperty Name="to_invoices" Relationship="ZTCR_FI_BOPF_SRV_01.assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"
+					FromRole="FromRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39" ToRole="ToRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"/></EntityType>
+			<Association Name="assoc_1C60B3C86DE9103EB5163CEA587970D8" sap:content-version="1"><End Type="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType" Multiplicity="1" Role="FromRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"/><End Type="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvposType" Multiplicity="*" Role="ToRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"><PropertyRef Name="id"/></Principal>
+					<Dependent Role="ToRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"><PropertyRef Name="invid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_CFB9FA4DBAAC78CBD3B226F327A06F39" sap:content-version="1"><End Type="ZTCR_FI_BOPF_SRV_01.ztcr_fi__c_CDSorderType" Multiplicity="1" Role="FromRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"/><End Type="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType" Multiplicity="*" Role="ToRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"><PropertyRef Name="id"/></Principal>
+					<Dependent Role="ToRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"><PropertyRef Name="orderid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZTCR_FI_BOPF_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ztcr_fi_c_cdsinv" EntityType="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType" sap:content-version="1"/><EntitySet Name="ztcr_fi_c_cdsinvpos" EntityType="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvposType" sap:content-version="1"/><EntitySet Name="ztcr_fi__c_CDSorder" EntityType="ZTCR_FI_BOPF_SRV_01.ztcr_fi__c_CDSorderType" sap:searchable="true" sap:content-version="1"/>
+				<AssociationSet Name="assoc_CFB9FA4DBAAC78CBD3B226F327A06F39" Association="ZTCR_FI_BOPF_SRV_01.assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ztcr_fi__c_CDSorder" Role="FromRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"/><End EntitySet="ztcr_fi_c_cdsinv" Role="ToRole_assoc_CFB9FA4DBAAC78CBD3B226F327A06F39"/></AssociationSet>
+				<AssociationSet Name="assoc_1C60B3C86DE9103EB5163CEA587970D8" Association="ZTCR_FI_BOPF_SRV_01.assoc_1C60B3C86DE9103EB5163CEA587970D8"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ztcr_fi_c_cdsinv" Role="FromRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"/><End EntitySet="ztcr_fi_c_cdsinvpos" Role="ToRole_assoc_1C60B3C86DE9103EB5163CEA587970D8"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi__c_CDSorderType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>id</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZTCR_FI_BOPF_SRV_01/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZTCR_FI_BOPF_SRV_01/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

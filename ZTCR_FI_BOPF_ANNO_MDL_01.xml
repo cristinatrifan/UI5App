@@ -1,0 +1,170 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL001')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL001')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL001')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="../../../sap/ztcr_fi_bopf_srv_01/$metadata">
+		<edmx:Include Namespace="ZTCR_FI_BOPF_SRV_01" Alias="SAP"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ztcr_fi_bopf_anno_mdl_01.v1">
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType/invdate">
+				<Annotation Term="Common.IsCalendarYearWeek"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType/issuedate">
+				<Annotation Term="Common.IsCalendarYearWeek"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType/email">
+				<Annotation Term="Communication.IsEmailAddress"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType/id">
+				<Annotation Term="UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType/tel">
+				<Annotation Term="Communication.IsPhoneNumber"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvType">
+				<Annotation Term="Communication.Contact">
+					<Record>
+						<PropertyValue Property="tel">
+							<Collection>
+								<Record>
+									<PropertyValue Property="type" EnumMember="Communication.PhoneType/cell"/>
+									<PropertyValue Property="uri" Path="tel"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="email">
+							<Collection>
+								<Record>
+									<PropertyValue Property="address" Path="email"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvposType/id">
+				<Annotation Term="UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi_c_cdsinvposType/invid">
+				<Annotation Term="UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi__c_CDSorderType/id">
+				<Annotation Term="UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="ZTCR_FI_BOPF_SRV_01.ztcr_fi__c_CDSorderType">
+				<Annotation Term="UI.FieldGroup" Qualifier="contactInfo">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="name"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Label" String="i18n&gt;contactInfo"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="nameInfo">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="name"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record>
+						<PropertyValue Property="TypeName" String="Order"/>
+						<PropertyValue Property="TypeNamePlural" String="Orders"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="billingkey"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="name"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="extbillingkey"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="billingkey"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="extbillingkey"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="billingkey"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="billingkey"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="GroupBy">
+							<Collection>
+								<PropertyPath>cui</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="RequestAtLeast">
+							<Collection>
+								<PropertyPath>name</PropertyPath>
+								<PropertyPath>extbillingkey</PropertyPath>
+								<PropertyPath>billingkey</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Communication.Contact">
+					<Record>
+						<PropertyValue Property="adr">
+							<Collection>
+								<Record>
+									<PropertyValue Property="type" EnumMember="Communication.ContactInformationType/preferred"/>
+									<PropertyValue Property="label" Path="address"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Communication.Address">
+					<Record>
+						<PropertyValue Property="type" EnumMember="Communication.ContactInformationType/preferred"/>
+						<PropertyValue Property="label" Path="address"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
